@@ -82,7 +82,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       attached: function() {
         this.listen(window, 'storage', '__onStorage');
         this.listen(
-            window.top,
+            window.self,
             'app-local-storage-changed',
             '__onAppLocalStorageChanged');
       },
@@ -90,7 +90,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       detached: function() {
         this.unlisten(window, 'storage', '__onStorage');
         this.unlisten(
-            window.top,
+            window.self,
             'app-local-storage-changed',
             '__onAppLocalStorageChanged');
       },
@@ -164,7 +164,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
 
           this.fire('app-local-storage-changed', this, {
-            node: window.top
+            node: window.self
           });
         }
 
